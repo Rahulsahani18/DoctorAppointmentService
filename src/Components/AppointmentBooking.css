@@ -1,0 +1,158 @@
+/* AppointmentBooking.css */
+.appointment-booking-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.doctor-header {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.doctor-specialty {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.doctor-address {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+/* Step Indicators */
+.step-indicators {
+  position: relative;
+}
+
+.step-indicators::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e9ecef;
+  z-index: 1;
+}
+
+.step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-weight: bold;
+  border: 2px solid #e9ecef;
+}
+
+.step.active .step-circle {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.step.completed .step-circle {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.step-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.step.active .step-label {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Cards for selection */
+.specialty-card,
+.appointment-type-card,
+.time-slot-card,
+.service-card,
+.clinic-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.specialty-card:hover,
+.appointment-type-card:hover,
+.time-slot-card:hover,
+.service-card:hover,
+.clinic-card:hover {
+  border-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.specialty-card.selected,
+.appointment-type-card.selected,
+.time-slot-card.selected,
+.service-card.selected,
+.clinic-card.selected {
+  border-color: #007bff;
+  background-color: #f8f9fa;
+}
+
+.service-card .price {
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Confirmation step */
+.confirmation-icon {
+  font-size: 4rem;
+  color: #28a745;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .step-indicators {
+    flex-wrap: wrap;
+  }
+  
+  .step {
+    flex: 0 0 33.333%;
+    margin-bottom: 15px;
+  }
+  
+  .step-indicators::before {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .step {
+    flex: 0 0 50%;
+  }
+  
+  .doctor-name {
+    font-size: 1.5rem;
+  }
+  
+  .step-content h3 {
+    font-size: 1.3rem;
+  }
+}
